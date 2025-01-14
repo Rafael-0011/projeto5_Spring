@@ -1,27 +1,20 @@
 package com.example.api.model;
 
-import com.example.api.dto.dtoConsole.DtoIdConsole;
-import com.example.api.dto.dtoDesenvolvedor.DtoCadastraDesenvolvedor;
-import com.example.api.dto.dtoDesenvolvedor.DtoIdDesenvolvedor;
-import com.example.api.dto.dtoJogo.DtoCadastraJogo;
-import com.example.api.dto.dtoJogo.JogoListagemDto;
+import com.example.api.dto.jogoDto.JogoCadastraDto;
+import com.example.api.dto.jogoDto.JogoListagemDto;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.List;
 
-@Setter
-@Getter
+
 @Entity
 public class Jogo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String nome;
     private String descricao;
     private LocalDate dataLancamento;
     private String website;
@@ -41,8 +34,12 @@ public class Jogo {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getDescricao() {
@@ -104,7 +101,7 @@ public class Jogo {
     public Jogo() {
     }
 
-    public Jogo(DtoCadastraJogo dados) {
+    public Jogo(JogoCadastraDto dados) {
         this.descricao = dados.descricao();
         this.dataLancamento = dados.dataLancamento();
         this.website = dados.website();

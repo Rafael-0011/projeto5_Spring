@@ -1,11 +1,8 @@
 package com.example.api.model;
 
-import com.example.api.dto.dtoConsole.DtoCadastraConsole;
-import com.example.api.dto.dtoConsole.DtoIdConsole;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.example.api.dto.consoleDto.ConsoleCadastraDto;
+import com.example.api.dto.consoleDto.ConsoleIdDto;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
@@ -15,8 +12,10 @@ public class Console {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(unique = true, nullable = false)
     private String nome;
     private LocalDate dataLancamento;
+    @Column(unique = true, nullable = false)
     private String empresa;
 
     public Long getId() {
@@ -47,20 +46,16 @@ public class Console {
         this.nome = nome;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public Console() {
     }
 
-    public Console(DtoCadastraConsole dados) {
+    public Console(ConsoleCadastraDto dados) {
         this.nome = dados.nome();
         this.dataLancamento = dados.dataLancamento();
         this.empresa = dados.empresa();
     }
 
-    public Console(DtoIdConsole id) {
+    public Console(ConsoleIdDto id) {
         this.id = id.id();
     }
 

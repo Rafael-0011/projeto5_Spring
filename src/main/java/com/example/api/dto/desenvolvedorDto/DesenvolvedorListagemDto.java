@@ -1,10 +1,10 @@
-package com.example.api.dto.dtoDesenvolvedor;
+package com.example.api.dto.desenvolvedorDto;
 
 import com.example.api.model.Desenvolvedor;
 
 import java.time.LocalDate;
 
-public record DtoListagemDesenvolvedor(
+public record DesenvolvedorListagemDto(
         Long id,
         String nome,
         LocalDate dataFundacao,
@@ -12,7 +12,7 @@ public record DtoListagemDesenvolvedor(
         String sede
 ) {
 
-    public DtoListagemDesenvolvedor(Desenvolvedor desenvolvedor) {
+    public DesenvolvedorListagemDto(Desenvolvedor desenvolvedor) {
         this(
                 desenvolvedor.getId(),
                 desenvolvedor.getNome(),

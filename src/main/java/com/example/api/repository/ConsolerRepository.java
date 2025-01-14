@@ -1,9 +1,11 @@
 package com.example.api.repository;
 
-import com.example.api.model.Desenvolvedor;
+import com.example.api.model.Console;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface RepositoryDesenvolvedor  extends JpaRepository<Desenvolvedor,Long> {
+public interface ConsolerRepository extends JpaRepository<Console, Long> {
+
 }

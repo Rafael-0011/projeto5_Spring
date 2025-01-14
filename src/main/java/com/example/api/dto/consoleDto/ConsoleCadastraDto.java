@@ -1,16 +1,15 @@
-package com.example.api.dto.dtoConsole;
+package com.example.api.dto.consoleDto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.Getter;
 
 import java.time.LocalDate;
 
 
-public record DtoCadastraConsole(
+public record ConsoleCadastraDto(
         @NotBlank
         String nome,
-        @NotBlank
+        @NotNull
         LocalDate dataLancamento,
         @NotBlank
         String empresa

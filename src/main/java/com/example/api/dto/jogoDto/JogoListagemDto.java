@@ -1,9 +1,7 @@
-package com.example.api.dto.dtoJogo;
+package com.example.api.dto.jogoDto;
 
-import com.example.api.dto.dtoConsole.DtoIdConsole;
-import com.example.api.dto.dtoDesenvolvedor.DtoIdDesenvolvedor;
-import com.example.api.model.Console;
-import com.example.api.model.Desenvolvedor;
+import com.example.api.dto.consoleDto.ConsoleIdDto;
+import com.example.api.dto.desenvolvedorDto.DesenvolvedorIdDto;
 import com.example.api.model.Jogo;
 
 import java.time.LocalDate;
@@ -15,10 +13,10 @@ public record JogoListagemDto(
         String descricao,
         LocalDate dataLancamento,
         String website,
-        DtoIdDesenvolvedor desenvolvedor,
+        DesenvolvedorIdDto desenvolvedor,
         String genero,
         String urlCapa,
-        List<DtoIdConsole> console
+        List<ConsoleIdDto> console
 
 ) {
     public JogoListagemDto(Jogo jogo) {
@@ -27,11 +25,11 @@ public record JogoListagemDto(
                 jogo.getDescricao(),
                 jogo.getDataLancamento(),
                 jogo.getWebsite(),
-                new DtoIdDesenvolvedor(jogo.getDesenvolvedor().getId()),
+                new DesenvolvedorIdDto(jogo.getDesenvolvedor().getId()),
                 jogo.getGenero(),
                 jogo.getUrlCapa(),
                 jogo.getConsole().stream()
-                        .map(console -> new DtoIdConsole(console.getId()))
+                        .map(console -> new ConsoleIdDto(console.getId()))
                         .toList()
 
         );
