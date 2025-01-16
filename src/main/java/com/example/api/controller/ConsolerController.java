@@ -6,6 +6,7 @@ import com.example.api.dto.consoleDto.ConsoleListagemDto;
 import com.example.api.model.Console;
 import com.example.api.repository.ConsolerRepository;
 import com.example.api.service.ServiceModel.ConsoleService;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -40,6 +41,7 @@ public class ConsolerController {
     }
 
     @GetMapping
+    @Schema(description = "page", example = "2")
     public ResponseEntity<Page<ConsoleListagemDto>> obterListaConsoler(@PageableDefault(size = 10) Pageable paginacao) {
         try {
             Page<ConsoleListagemDto> listagemConsoles = consolerRepository.findAll(paginacao).map(ConsoleListagemDto::new);

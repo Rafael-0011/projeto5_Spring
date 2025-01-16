@@ -3,13 +3,16 @@ package com.example.api.dto.jogoDto;
 import com.example.api.dto.consoleDto.ConsoleIdDto;
 import com.example.api.dto.desenvolvedorDto.DesenvolvedorIdDto;
 import com.example.api.model.Jogo;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 
 import java.time.LocalDate;
 import java.util.List;
 
 public record JogoAtualizarDto(
-        @NotBlank Long id,
+        @Schema(example = "1")
+        @NotBlank
+        Long id,
         String nome,
         String descricao,
         LocalDate dataLancamento,

@@ -3,12 +3,14 @@ package com.example.api.dto.jogoDto;
 import com.example.api.dto.consoleDto.ConsoleIdDto;
 import com.example.api.dto.desenvolvedorDto.DesenvolvedorIdDto;
 import com.example.api.model.Jogo;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.time.LocalDate;
 import java.util.List;
 
 
 public record JogoListagemDto(
+        @Schema(example = "1")
         Long id,
         String descricao,
         LocalDate dataLancamento,

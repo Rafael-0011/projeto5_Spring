@@ -33,9 +33,10 @@ public class JogoController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<JogoCadastraDto> cadastraJogo(@RequestBody JogoCadastraDto cadastraJogo) {
+    public ResponseEntity<JogoListagemDto> cadastraJogo(@RequestBody JogoCadastraDto cadastraJogo) {
+        jogoService.validaDados(cadastraJogo);
         Jogo dados = jogoRepository.save(new Jogo(cadastraJogo));
-        return ResponseEntity.ok(new JogoCadastraDto(dados));
+        return ResponseEntity.ok(new JogoListagemDto(dados));
     }
 
     @GetMapping
@@ -49,7 +50,6 @@ public class JogoController {
 
          return ResponseEntity.ok(new JogoListagemDadosCompletosDto(dados.get()));
     }
-
 
     @PutMapping
     @Transactional
