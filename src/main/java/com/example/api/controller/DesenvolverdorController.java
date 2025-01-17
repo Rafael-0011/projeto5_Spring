@@ -30,7 +30,7 @@ public class DesenvolverdorController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<?> cadastraDesenvolverdor(@RequestBody @Valid DesenvolvedorCadastraDto cadastraDesenvolvedor) {
+    public ResponseEntity<DesenvolvedorListagemDto> cadastraDesenvolverdor(@RequestBody @Valid DesenvolvedorCadastraDto cadastraDesenvolvedor) {
         try {
             Desenvolvedor dados = desenvolvedorRepository.save(new Desenvolvedor(cadastraDesenvolvedor));
             return ResponseEntity.ok(new DesenvolvedorListagemDto(dados));

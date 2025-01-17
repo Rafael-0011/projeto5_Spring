@@ -60,7 +60,7 @@ public class JogoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deletarJogo(@PathVariable Long id) {
+    public ResponseEntity<String> deletarJogo(@PathVariable Long id) {
         jogoRepository.deleteById(id);
         return ResponseEntity.ok("Jogo Deletado");
     }
