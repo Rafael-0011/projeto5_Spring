@@ -12,7 +12,7 @@ import io.swagger.v3.oas.annotations.security.SecurityScheme;
     info = @Info(
         contact = @Contact(
             name = "rafael",
-            email = "rafaelsora0@gmail.com"
+            email = "rafaelsora@gmail.com"
         ),
         title = "OpenApi",
         description = "OpenApi documentation for Spring Sercurity",
@@ -34,5 +34,6 @@ import io.swagger.v3.oas.annotations.security.SecurityScheme;
     in = SecuritySchemeIn.HEADER
 )
 public class OpenApiConfig {
-   
+  
+
 }

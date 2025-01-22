@@ -26,7 +26,7 @@ public class Jogo {
     @ManyToMany
     @JoinTable(
             name = "jogo_console",
-            joinColumns = @JoinColumn(name = "jogo_id"),
+            joinColumns = @JoinColumn(name = "desenvolverdor_id"),
             inverseJoinColumns = @JoinColumn(name = "console_id"))
     private List<Console> console;
 

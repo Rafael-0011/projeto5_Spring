@@ -8,6 +8,9 @@ import com.example.api.dto.jogoDto.JogoListagemDto;
 import com.example.api.model.Jogo;
 import com.example.api.repository.JogoRepository;
 import com.example.api.service.ServiceModel.JogoService;
+
+import jakarta.validation.Valid;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -45,10 +48,14 @@ public class JogoController {
     }
 
      @GetMapping("/{id}")
-    public ResponseEntity<JogoListagemDadosCompletosDto> getObterJogo(@PathVariable Long id) {
-         Optional<Jogo> dados = jogoRepository.findById(id);
+    public ResponseEntity<JogoListagemDadosCompletosDto> getObterJogo(@PathVariable @Valid Long id) {
+         try {
+            Optional<Jogo> dados = jogoRepository.findById(id);
 
          return ResponseEntity.ok(new JogoListagemDadosCompletosDto(dados.get()));
+         } catch (Exception e) {
+            throw new RuntimeException(e);
+         }
     }
 
     @PutMapping
